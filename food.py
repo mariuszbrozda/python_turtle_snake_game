@@ -1,28 +1,24 @@
 
-from turtle import Turtle,Screen
+from turtle import Turtle, Screen
 import random
 
 screen = Screen()
 
-food = Turtle(shape='square')
 
-
-class FoodClass:
+class Food(Turtle):
 
     def __init__(self):
-        self.food = food.dot(10)
-
-    def show_food(self, food_x_pos, food_y_pos):
-        food_x_pos = random.randint(0, 290)
-        food_y_pos = random.randint(0, 290)
-        self.food.goto(food_x_pos, food_x_pos)
-
-
-
-food_class = FoodClass()
-
-for meal in range(4):
-    food_class.show_food()
+        super().__init__()
+        self.shape('circle')
+        self.penup()
+        self.shapesize(0.5, 0.5)
+        self.color('blue')
+        self.speed('fastest')
+        rand_x_pos = random.randint(-280, 280)
+        rand_y_pos = random.randint(-280, 280)
+        self.goto(rand_x_pos, rand_y_pos)
 
 
-screen.exitonclick()
+
+
+
