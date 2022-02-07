@@ -14,11 +14,13 @@ class Snake:
 
     def __init__(self,):
         self.segments = []
+        self.speed = 1
         self.create_snake()
         self.head = self.segments[0]
 
     def create_snake(self):
         for position in STARTING_POSITIONS:
+            self.speed = 1
             self.add_segment_to_snake(position)
 
     def add_segment_to_snake(self, position):
@@ -31,6 +33,10 @@ class Snake:
 
     def extend_snake_body(self):
         self.add_segment_to_snake(self.segments[-1].position())
+
+    def speed_up_snake(self):
+        self.speed += 1
+        self.head.speed(self.speed)
 
     def move(self):
         for seq_num in range(len(self.segments) - 1, 0, -1):
